@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is Financials First right for you? | ERP Experts</title>
+<meta name="description" content="Answer a few quick questions and we'll tell you honestly whether Financials First Fast-Track is the right fit for your business.">
+<link rel="canonical" href="https://erpexperts.co.uk/financialsfirst">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Manrope:wght@400..700&display=swap" rel="stylesheet">
+
+<style>
+  /* ── Design tokens ── */
+  :root {
+    --blue: #7C3AED;
+    --blue-deep: #6D28D9;
+    --blue-ink: #2A1457;
+    --blue-soft: #F1EBFD;
+    --blue-band: #F5F1FC;
+    --blue-line: #DDD0F6;
+    --ink: #15181E;
+    --body: #3D4350;
+    --slate: #647080;
+    --paper: #FFFFFF;
+    --line: #E7EAF0;
+    --green: #1E7F4F;
+    --red: #C0452C;
+    --amber: #B45309;
+    --amber-bg: #FFFBEB;
+    --red-bg: #FEF2F2;
+    --green-bg: #F0FDF4;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  /* ── Reset ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--body);
+    background: var(--paper);
+    min-height: 100vh;
+  }
+
+  /* ── Layout ── */
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .header h1 {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 4vw, 32px);
+    color: var(--blue-ink);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .header p {
+    color: var(--slate);
+    font-size: 16px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ── Progress indicator ── */
+  .progress-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .progress-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--slate);
+    margin-right: 12px;
+    white-space: nowrap;
+  }
+
+  .progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--blue-line);
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .progress-dot.active {
+    background: var(--blue);
+    transform: scale(1.3);
+  }
+
+  .progress-dot.done {
+    background: var(--blue-deep);
+  }
+
+  /* ── Card (question + result containers) ── */
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(21, 24, 30, 0.06);
+  }
+
+  .card h2 {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--blue-ink);
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    margin-bottom: 20px;
+  }
+
+  /* ── Option pill buttons ── */
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .option-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: var(--paper);
+    border: 2px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--body);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+    line-height: 1.4;
+  }
+
+  .option-btn:hover {
+    border-color: var(--blue-line);
+    background: var(--blue-band);
+  }
+
+  .option-btn:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+  }
+
+  .option-btn.selected {
+    border-color: var(--blue);
+    background: var(--blue-soft);
+    color: var(--blue-ink);
+    box-shadow: 0 0 0 1px var(--blue);
+  }
+
+  /* ── Nav buttons ── */
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+    gap: 12px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s, opacity 0.15s, box-shadow 0.15s;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: #fff;
+  }
+
+  .btn-primary:hover { background: var(--blue-deep); }
+  .btn-primary:focus-visible { outline: 2px solid var(--blue-deep); outline-offset: 2px; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--slate);
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .btn-ghost:hover { color: var(--body); background: var(--blue-band); }
+
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  /* ── Results ── */
+  .result-badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .badge-green { background: var(--green-bg); color: var(--green); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber); }
+  .badge-red   { background: var(--red-bg);   color: var(--red); }
+
+  .result-heading {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--blue-ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  .result-detail {
+    color: var(--slate);
+    font-size: 15px;
+    margin-bottom: 24px;
+    line-height: 1.55;
+  }
+
+  .result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .result-phone {
+    font-size: 15px;
+    color: var(--slate);
+  }
+
+  .result-phone strong {
+    color: var(--ink);
+  }
+
+  /* ── Hidden ── */
+  .hidden { display: none !important; }
+
+  /* ── Fade transition ── */
+  .step-panel {
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+
+  .step-panel.fade-out {
+    opacity: 0;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 480px) {
+    .page { padding: 32px 16px 64px; }
+    .card { padding: 24px 20px; }
+    .nav-row { flex-direction: column-reverse; align-items: stretch; }
+    .btn { width: 100%; text-align: center; }
+    .btn-ghost { width: auto; align-self: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Is Financials First right for you?</h1>
+    <p>Answer a few quick questions. We'll tell you honestly whether it fits.</p>
+  </header>
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap" id="progressWrap">
+    <span class="progress-label" id="progressLabel">Question 1 of 5</span>
+    <span class="progress-dot active" data-dot="1"></span>
+    <span class="progress-dot" data-dot="2"></span>
+    <span class="progress-dot" data-dot="3"></span>
+    <span class="progress-dot" data-dot="4"></span>
+    <span class="progress-dot" data-dot="5"></span>
+  </div>
+
+  <!-- SCORECARD PANELS -->
+  <div id="scorer">
+
+    <!-- Q1 -->
+    <div class="step-panel card" data-step="0">
+      <h2>What's your approximate annual turnover?</h2>
+      <div class="options">
+        <button class="option-btn" data-q="0" data-o="0">Under £5m</button>
+        <button class="option-btn" data-q="0" data-o="1">£5m &ndash; £50m</button>
+        <button class="option-btn" data-q="0" data-o="2">£50m &ndash; £100m</button>
+        <button class="option-btn" data-q="0" data-o="3">Over £100m</button>
+      </div>
+      <div class="nav-row">
+        <span></span>
+        <button class="btn btn-primary" disabled id="next0">Next</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="step-panel card hidden" data-step="1">
+      <h2>What's driving this project?</h2>
+      <div class="options">
+        <button class="option-btn" data-q="1" data-o="0">We've outgrown Xero, Sage or QuickBooks</button>
+        <button class="option-btn" data-q="1" data-o="1">Our finance team needs proper controls</button>
+        <button class="option-btn" data-q="1" data-o="2">We're being acquired or need audit readiness</button>
+        <button class="option-btn" data-q="1" data-o="3">We need CRM and ecommerce too</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-ghost" id="back1">Back</button>
+        <button class="btn btn-primary" disabled id="next1">Next</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="step-panel card hidden" data-step="2">
+      <h2>Who's leading the decision?</h2>
+      <div class="options">
+        <button class="option-btn" data-q="2" data-o="0">FD or FC</button>
+        <button class="option-btn" data-q="2" data-o="1">CEO or MD</button>
+        <button class="option-btn" data-q="2" data-o="2">IT</button>
+        <button class="option-btn" data-q="2" data-o="3">Not sure yet</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-ghost" id="back2">Back</button>
+        <button class="btn btn-primary" disabled id="next2">Next</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="step-panel card hidden" data-step="3">
+      <h2>What's your timeline?</h2>
+      <div class="options">
+        <button class="option-btn" data-q="3" data-o="0">We need to be live in 30 days</button>
+        <button class="option-btn" data-q="3" data-o="1">2 &ndash; 3 months</button>
+        <button class="option-btn" data-q="3" data-o="2">6 months</button>
+        <button class="option-btn" data-q="3" data-o="3">We're just exploring</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-ghost" id="back3">Back</button>
+        <button class="btn btn-primary" disabled id="next3">Next</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="step-panel card hidden" data-step="4">
+      <h2>Do you need inventory, manufacturing or ecommerce on day one?</h2>
+      <div class="options">
+        <button class="option-btn" data-q="4" data-o="0">Yes, all of it</button>
+        <button class="option-btn" data-q="4" data-o="1">Just one of those</button>
+        <button class="option-btn" data-q="4" data-o="2">No, finance only</button>
+        <button class="option-btn" data-q="4" data-o="3">Not sure</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-ghost" id="back4">Back</button>
+        <button class="btn btn-primary" disabled id="next4">See my result</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="step-panel card hidden" id="resultsPanel">
+      <div id="resultContent"></div>
+    </div>
+
+  </div><!-- /#scorer -->
+
+</div><!-- /.page -->
+
+<script>
+(function () {
+  /* ── Scoring: for each q, which option indices count as best-fit ── */
+  var BEST_FIT = {
+    0: [1, 2],    /* £5m-£50m, £50m-£100m */
+    1: [0, 1, 2], /* outgrown, controls, audit */
+    2: [0, 1],    /* FD/FC, CEO/MD */
+    3: [0, 1],    /* 30 days, 2-3 months */
+    4: [2, 3]     /* finance only, not sure */
+  };
+
+  var answers   = {};        /* qNum -> optionIndex */
+  var current   = 0;
+  var TOTAL_Q   = 5;
+
+  /* ── DOM refs ── */
+  var panels    = document.querySelectorAll('.step-panel[data-step]');
+  var resultPanel = document.getElementById('resultsPanel');
+  var resultContent = document.getElementById('resultContent');
+  var progressLabel = document.getElementById('progressLabel');
+  var progressDots  = document.querySelectorAll('.progress-dot');
+
+  /* ── Build back/next ID maps ── */
+  var nextBtns = {};
+  var backBtns = {};
+  for (var i = 0; i < TOTAL_Q; i++) {
+    nextBtns[i] = document.getElementById('next' + i);
+    backBtns[i] = document.getElementById('back' + i);
+  }
+
+  /* ── Helpers ── */
+  function showPanel(idx) {
+    panels.forEach(function (p) {
+      var step = parseInt(p.getAttribute('data-step'), 10);
+      p.classList.toggle('hidden', step !== idx);
+    });
+    resultPanel.classList.add('hidden');
+
+    /* progress */
+    progressLabel.textContent = 'Question ' + (idx + 1) + ' of ' + TOTAL_Q;
+    progressDots.forEach(function (d, di) {
+      d.classList.remove('active', 'done');
+      if (di < idx) d.classList.add('done');
+      if (di === idx) d.classList.add('active');
+    });
+  }
+
+  function hideAllQuestions() {
+    panels.forEach(function (p) { p.classList.add('hidden'); });
+    resultPanel.classList.add('hidden');
+  }
+
+  function updateNextBtn(qIdx) {
+    var btn = nextBtns[qIdx];
+    if (!btn) return;
+    btn.disabled = (answers[qIdx] === undefined);
+  }
+
+  function goNext() {
+    if (current < TOTAL_Q - 1) {
+      current++;
+      showPanel(current);
+    } else {
+      /* last question answered -> show results */
+      showResults();
+    }
+  }
+
+  function goBack() {
+    if (current > 0) {
+      current--;
+      showPanel(current);
+    }
+  }
+
+  /* ── Score calculation ── */
+  function calcScore() {
+    var score = 0;
+    for (var i = 0; i < TOTAL_Q; i++) {
+      if (answers[i] !== undefined && BEST_FIT[i].indexOf(answers[i]) !== -1) {
+        score++;
+      }
+    }
+    return score;
+  }
+
+  /* ── Results rendering ── */
+  function showResults() {
+    hideAllQuestions();
+    resultPanel.classList.remove('hidden');
+    progressLabel.textContent = 'Complete';
+    progressDots.forEach(function (d) { d.classList.add('done'); d.classList.remove('active'); });
+
+    var score = calcScore();
+    var heading, badgeClass, badgeLabel, detail, actionsHtml;
+
+    if (score >= 4) {
+      /* HIGH FIT */
+      badgeClass = 'badge-green';
+      badgeLabel = 'Strong fit';
+      heading   = 'Financials First Fast-Track looks like a strong fit.';
+      detail    = 'Your answers suggest you\'re exactly the kind of business we built this for. Take a look at the full offer.';
+      actionsHtml =
+        '<a href="/financialsfirst/offer/" class="btn btn-primary">See the full offer &rarr;</a>';
+    } else if (score >= 2) {
+      /* MID FIT */
+      badgeClass = 'badge-amber';
+      badgeLabel = 'Possible fit';
+      heading   = 'Financials First might work. Let\'s talk.';
+      detail    = 'There\'s a decent chance Financials First Fast-Track lines up with what you need, but a quick conversation will make sure.';
+      actionsHtml =
+        '<a href="/financialsfirst/offer/" class="btn btn-primary">See the full offer &rarr;</a>' +
+        '<span class="result-phone">Or call <strong>01785 336 253</strong></span>';
+    } else {
+      /* LOW FIT */
+      badgeClass = 'badge-red';
+      badgeLabel = 'Not a match';
+      heading   = 'Financials First probably isn\'t the right shape.';
+      detail    = 'Based on your answers, our Fast-Track package might not cover what you need. But we can still help. Give us a call and we\'ll point you towards the right solution.';
+      actionsHtml =
+        '<span class="result-phone">Call us on <strong>01785 336 253</strong> &mdash; we\'ll point you to the right solution.</span>';
+    }
+
+    resultContent.innerHTML =
+      '<span class="result-badge ' + badgeClass + '">' + badgeLabel + '</span>' +
+      '<div class="result-heading">' + heading + '</div>' +
+      '<p class="result-detail">' + detail + '</p>' +
+      '<div class="result-actions">' + actionsHtml + '</div>';
+  }
+
+  /* ── Option click handlers ── */
+  document.getElementById('scorer').addEventListener('click', function (e) {
+    var btn = e.target.closest('.option-btn');
+    if (!btn) return;
+
+    var q = parseInt(btn.getAttribute('data-q'), 10);
+    var o = parseInt(btn.getAttribute('data-o'), 10);
+
+    /* Deselect siblings */
+    var siblings = btn.parentElement.querySelectorAll('.option-btn');
+    siblings.forEach(function (s) { s.classList.remove('selected'); });
+
+    /* Select this */
+    btn.classList.add('selected');
+    answers[q] = o;
+    updateNextBtn(q);
+  });
+
+  /* ── Next / back button handlers ── */
+  document.getElementById('scorer').addEventListener('click', function (e) {
+    var t = e.target;
+
+    /* Next buttons */
+    for (var i = 0; i < TOTAL_Q; i++) {
+      if (t === nextBtns[i] && !t.disabled) {
+        goNext();
+        return;
+      }
+    }
+
+    /* Back buttons */
+    for (var j = 0; j < TOTAL_Q; j++) {
+      if (t === backBtns[j]) {
+        goBack();
+        return;
+      }
+    }
+  });
+
+  /* ── Keyboard: Enter on a selected option triggers Next ── */
+  document.getElementById('scorer').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && e.target.classList.contains('option-btn')) {
+      e.preventDefault();
+      var q = parseInt(e.target.getAttribute('data-q'), 10);
+      if (answers[q] !== undefined && nextBtns[q] && !nextBtns[q].disabled) {
+        goNext();
+      }
+    }
+  });
+
+  /* ── Init ── */
+  showPanel(0);
+})();
+</script>
+
+</body>
+</html>

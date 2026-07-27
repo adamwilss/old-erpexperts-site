@@ -11,19 +11,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ff-blue: #7C3AED;
-  --ff-blue-deep: #6D28D9;
-  --ff-blue-ink: #2A1457;
-  --ff-blue-soft: #F1EBFD;
-  --ff-blue-band: #F5F1FC;
-  --ff-blue-line: #DDD0F6;
-  --ff-ink: #15181E;
-  --ff-body: #3D4350;
-  --ff-slate: #647080;
-  --ff-paper: #FFFFFF;
-  --ff-line: #E7EAF0;
-  --ff-green: #1E7F4F;
-  --ff-red: #C0452C;
+  --blue: #7C3AED;
+  --blue-deep: #6D28D9;
+  --blue-ink: #2A1457;
+  --blue-soft: #F1EBFD;
+  --blue-band: #F5F1FC;
+  --blue-line: #DDD0F6;
+  --ink: #15181E;
+  --ink-2: #23272F;
+  --body: #3D4350;
+  --slate: #647080;
+  --paper: #FFFFFF;
+  --line: #E7EAF0;
+  --green: #1E7F4F;
+  --red: #C0452C;
 }
 
 *, *::before, *::after {
@@ -34,21 +35,22 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 1rem;
   line-height: 1.65;
-  color: var(--ff-body);
-  background: var(--ff-paper);
+  color: var(--body);
+  background: var(--paper);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: var(--ff-ink);
+  color: var(--ink);
   line-height: 1.2;
 }
 
@@ -56,27 +58,108 @@ h1 { font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 800; }
 h2 { font-size: clamp(1.625rem, 3.5vw, 2.5rem); font-weight: 700; }
 h3 { font-size: clamp(1.125rem, 2vw, 1.375rem); font-weight: 700; }
 
-a { color: var(--ff-blue); text-decoration: none; }
-a:hover { color: var(--ff-blue-deep); }
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--blue-deep); }
 
-img { max-width: 100%; height: auto; display: block; }
+img, svg { max-width: 100%; height: auto; display: block; }
 
-/* Container */
+/* --- Nav --- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 0 0;
+}
+
+.nav-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+}
+
+.nav-logo-text {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--slate);
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+.nav-btn {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.55rem 1.35rem;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #fff !important;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  background: var(--blue-deep);
+}
+
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--ink);
+}
+
+/* --- Container --- */
 .container {
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
+
 @media (min-width: 768px) {
   .container { padding: 0 2rem; }
+  .nav-inner { padding: 0 2rem; }
 }
 
-/* Section */
+/* --- Section --- */
 .section {
   padding: 5rem 0;
 }
 
-/* Pill Buttons */
+/* --- Buttons --- */
 .btn {
   display: inline-block;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -91,44 +174,52 @@ img { max-width: 100%; height: auto; display: block; }
   text-decoration: none;
   line-height: 1.4;
 }
+
 .btn-primary {
-  background: var(--ff-blue);
+  background: var(--blue);
   color: #fff;
-  border-color: var(--ff-blue);
+  border-color: var(--blue);
 }
+
 .btn-primary:hover {
-  background: var(--ff-blue-deep);
-  border-color: var(--ff-blue-deep);
+  background: var(--blue-deep);
+  border-color: var(--blue-deep);
   color: #fff;
 }
+
 .btn-outline {
   background: transparent;
-  color: var(--ff-blue);
-  border-color: var(--ff-blue);
+  color: var(--blue);
+  border-color: var(--blue);
 }
+
 .btn-outline:hover {
-  background: var(--ff-blue);
+  background: var(--blue);
   color: #fff;
 }
+
 .btn-outline-white {
   background: transparent;
   color: #fff;
   border-color: rgba(255,255,255,0.5);
 }
+
 .btn-outline-white:hover {
   background: #fff;
-  color: var(--ff-blue-ink);
+  color: var(--blue-ink);
   border-color: #fff;
 }
+
 .btn-white {
   background: #fff;
-  color: var(--ff-blue);
+  color: var(--blue);
   border-color: #fff;
 }
+
 .btn-white:hover {
-  background: var(--ff-blue-soft);
-  border-color: var(--ff-blue-soft);
-  color: var(--ff-blue-deep);
+  background: var(--blue-soft);
+  border-color: var(--blue-soft);
+  color: var(--blue-deep);
 }
 
 .btn-group {
@@ -138,20 +229,21 @@ img { max-width: 100%; height: auto; display: block; }
   justify-content: center;
 }
 
-/* Cards */
+/* --- Cards --- */
 .card {
-  background: var(--ff-paper);
-  border: 1px solid var(--ff-line);
+  background: var(--paper);
+  border: 1px solid var(--line);
   border-radius: 16px;
   padding: 2rem;
 }
 
-/* Grid */
+/* --- Grid --- */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
+
 @media (min-width: 768px) {
   .grid-2 { grid-template-columns: repeat(2, 1fr); }
 }
@@ -161,6 +253,7 @@ img { max-width: 100%; height: auto; display: block; }
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
+
 @media (min-width: 576px) {
   .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 }
@@ -171,59 +264,74 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 1.5rem;
 }
 
-/* Section A: Problem Landscape */
-.problem-landscape {
-  background: var(--ff-blue-ink);
-  color: #fff;
-  padding: 5rem 0;
+/* --- Section Spacing --- */
+.section-spacer {
+  border: none;
+  border-top: 1px solid var(--line);
 }
-.problem-landscape h1 {
+
+/* ============================================
+   A: PROBLEM LANDSCAPE
+   ============================================ */
+.problem {
+  background: var(--blue-ink);
+  color: #fff;
+}
+
+.problem h1 {
   color: #fff;
   max-width: 900px;
 }
-.problem-landscape ul {
+
+.problem .subtitle {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.75);
+  margin: 1.25rem 0 2rem;
+  max-width: 750px;
+  line-height: 1.7;
+}
+
+.problem ul {
   list-style: none;
   padding: 0;
-  margin: 2rem 0;
+  margin: 0 0 2rem;
   max-width: 800px;
 }
-.problem-landscape ul li {
+
+.problem ul li {
   position: relative;
   padding-left: 1.75rem;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  margin-bottom: 0.9rem;
+  font-size: 1.05rem;
   line-height: 1.6;
   color: rgba(255,255,255,0.9);
 }
-.problem-landscape ul li::before {
+
+.problem ul li::before {
   content: '';
   position: absolute;
   left: 0;
   top: 0.55rem;
-  width: 10px;
-  height: 10px;
-  background: var(--ff-blue);
+  width: 8px;
+  height: 8px;
+  background: var(--blue);
   border-radius: 50%;
 }
-.problem-landscape blockquote {
-  border-left: 3px solid var(--ff-blue);
+
+.problem blockquote {
+  border-left: 3px solid var(--blue);
   padding: 1.25rem 1.5rem;
   margin: 2.25rem 0;
   font-style: italic;
   font-size: 1.05rem;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.85);
   background: rgba(255,255,255,0.05);
   border-radius: 0 8px 8px 0;
   max-width: 750px;
+  line-height: 1.65;
 }
-.problem-landscape blockquote cite {
-  display: block;
-  margin-top: 0.5rem;
-  font-style: normal;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.55);
-}
-.problem-landscape .pivot {
+
+.problem .pivot {
   font-size: 1.15rem;
   line-height: 1.7;
   color: rgba(255,255,255,0.9);
@@ -231,61 +339,68 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 2rem 0;
 }
 
-/* Section B: Hero */
+/* ============================================
+   B: HERO
+   ============================================ */
 .hero {
-  background: var(--ff-paper);
+  background: var(--paper);
   text-align: center;
-  padding: 5rem 0;
 }
+
 .hero h1 {
   max-width: 850px;
   margin: 0 auto 1.25rem;
 }
+
 .hero p {
   font-size: 1.15rem;
-  color: var(--ff-slate);
+  color: var(--slate);
   max-width: 650px;
   margin: 0 auto 2rem;
   line-height: 1.7;
 }
 
-/* Section C: Guarantee Proof Strip */
+/* ============================================
+   C: GUARANTEE PROOF STRIP
+   ============================================ */
 .guarantee-strip {
-  background: var(--ff-blue-soft);
-  padding: 5rem 0;
+  background: var(--blue-soft);
 }
+
 .guarantee-strip .step {
   text-align: center;
 }
-.guarantee-strip .step-number {
+
+.guarantee-strip .step-num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--ff-blue);
+  background: var(--blue);
   color: #fff;
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
   margin-bottom: 1.25rem;
 }
-.guarantee-strip .step h3 {
-  margin-bottom: 0.5rem;
-}
+
 .guarantee-strip .step p {
-  color: var(--ff-slate);
+  color: var(--slate);
   font-size: 0.95rem;
   line-height: 1.6;
+  margin-top: 0.5rem;
 }
 
-/* Section D: Track Record */
+/* ============================================
+   D: TRACK RECORD
+   ============================================ */
 .track-record {
-  background: var(--ff-paper);
+  background: var(--paper);
   text-align: center;
-  padding: 5rem 0;
 }
+
 .track-record .stats {
   display: flex;
   flex-wrap: wrap;
@@ -293,56 +408,78 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 3rem;
   margin-top: 1rem;
 }
-.track-record .stat-number {
+
+.track-record .stat-num {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: clamp(2.25rem, 5vw, 3.5rem);
-  color: var(--ff-blue);
+  color: var(--blue);
   line-height: 1.1;
 }
+
 .track-record .stat-label {
   font-size: 0.95rem;
-  color: var(--ff-slate);
+  color: var(--slate);
   margin-top: 0.35rem;
 }
 
-/* Section E: Why Finance First */
+/* ============================================
+   E: WHY FINANCE FIRST
+   ============================================ */
 .why-finance {
-  background: var(--ff-paper);
-  padding: 5rem 0;
+  background: var(--paper);
 }
+
 .why-finance .intro {
-  font-size: 1.1rem;
-  color: var(--ff-slate);
-  max-width: 750px;
-  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+  color: var(--slate);
+  max-width: 800px;
   line-height: 1.7;
 }
 
-/* Section F: Comparison Table */
+.why-finance .intro + .intro {
+  margin-top: 1.25rem;
+}
+
+.why-finance .card p {
+  color: var(--slate);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* ============================================
+   F: COMPARISON TABLE
+   ============================================ */
 .comparison {
-  background: var(--ff-blue-band);
-  padding: 5rem 0;
+  background: var(--blue-band);
 }
-.comparison h2 {
-  margin-bottom: 0.5rem;
-}
+
 .comparison .table-subtitle {
-  color: var(--ff-slate);
+  color: var(--slate);
   font-size: 1.05rem;
   margin-bottom: 2.5rem;
+  max-width: 800px;
+  line-height: 1.65;
 }
+
+.comparison .table-wrap {
+  overflow-x: auto;
+}
+
 .comparison table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  background: var(--ff-paper);
+  background: var(--paper);
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid var(--ff-line);
+  border: 1px solid var(--line);
+  min-width: 700px;
 }
+
 .comparison th {
-  background: var(--ff-blue-ink);
+  background: var(--blue-ink);
   color: #fff;
   padding: 1rem 1.5rem;
   text-align: left;
@@ -350,68 +487,85 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 700;
   font-size: 1rem;
 }
+
 .comparison th:first-child {
-  background: var(--ff-blue-band);
-  color: var(--ff-ink);
+  background: var(--blue-band);
+  color: var(--ink);
   font-weight: 600;
-  border-right: 1px solid var(--ff-line);
+  font-family: 'Inter', sans-serif;
+  border-right: 1px solid var(--line);
 }
+
 .comparison td {
   padding: 0.9rem 1.5rem;
-  font-size: 0.95rem;
-  border-bottom: 1px solid var(--ff-line);
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--line);
   vertical-align: top;
-  line-height: 1.5;
+  line-height: 1.55;
 }
+
 .comparison td:first-child {
   font-weight: 600;
-  color: var(--ff-ink);
+  color: var(--ink);
   background: #fafafa;
-  border-right: 1px solid var(--ff-line);
+  border-right: 1px solid var(--line);
   white-space: nowrap;
+  width: 1%;
 }
+
+.comparison td:last-child {
+  background: rgba(124, 58, 237, 0.03);
+}
+
 .comparison tr:last-child td {
   border-bottom: none;
 }
-@media (max-width: 575px) {
-  .comparison table { font-size: 0.85rem; }
-  .comparison th, .comparison td { padding: 0.7rem 0.75rem; }
+
+.comparison .table-footnote {
+  font-size: 0.85rem;
+  color: var(--slate);
+  margin-top: 1.25rem;
+  line-height: 1.5;
 }
 
-/* Section G: Offer */
-.offer {
-  background: var(--ff-paper);
-  padding: 5rem 0;
+/* ============================================
+   G: OFFER SECTION
+   ============================================ */
+.offer-scope {
+  background: var(--paper);
 }
-.offer .price {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  font-size: clamp(2rem, 4.5vw, 3rem);
-  color: var(--ff-blue);
-  margin: 1rem 0 0.25rem;
+
+.offer-scope .intro-text {
+  font-size: 1.05rem;
+  color: var(--slate);
+  max-width: 850px;
+  line-height: 1.7;
+  margin: 1.25rem 0;
 }
-.offer .price-detail {
-  font-size: 1rem;
-  color: var(--ff-slate);
-  margin-bottom: 0.5rem;
-}
-.offer .aftercare {
-  background: var(--ff-blue-soft);
+
+.offer-scope .aftercare-note {
+  background: var(--blue-soft);
   border-radius: 12px;
-  padding: 1.25rem;
-  margin: 1.5rem 0;
+  padding: 1.5rem;
+  margin: 2rem 0;
   font-size: 0.95rem;
-  color: var(--ff-ink);
-  line-height: 1.6;
+  color: var(--ink);
+  line-height: 1.65;
 }
-.offer .aftercare strong {
-  color: var(--ff-blue);
+
+.offer-scope .col-header {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
 }
-.offer .check-list {
+
+.offer-scope .check-list {
   list-style: none;
   padding: 0;
 }
-.offer .check-list li {
+
+.offer-scope .check-list li {
   padding: 0.5rem 0;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -419,47 +573,111 @@ img { max-width: 100%; height: auto; display: block; }
   align-items: flex-start;
   gap: 0.5rem;
 }
-.offer .check-list li::before {
+
+.offer-scope .check-list li::before {
   font-weight: 700;
   font-size: 1.1rem;
   flex-shrink: 0;
   margin-top: 0.05rem;
 }
-.offer .check-list.green li::before {
+
+.offer-scope .check-list.green li::before {
   content: '\2713';
-  color: var(--ff-green);
-}
-.offer .check-list.red li::before {
-  content: '\2717';
-  color: var(--ff-red);
-}
-.offer .col-header {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
+  color: var(--green);
 }
 
-/* Section H: Guarantee */
-.guarantee {
-  background: var(--ff-blue-soft);
-  padding: 5rem 0;
+.offer-scope .check-list.red li::before {
+  content: '\2717';
+  color: var(--red);
 }
-.guarantee .checklist-items {
+
+/* ============================================
+   H: GUARANTEE
+   ============================================ */
+.guarantee {
+  background: var(--blue-soft);
+}
+
+.guarantee .tagline {
+  font-size: 1.1rem;
+  color: var(--slate);
+  max-width: 700px;
+  line-height: 1.7;
+  margin: 0.75rem 0 2rem;
+}
+
+.guarantee .payment-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 575px) {
+  .guarantee .payment-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.guarantee .payment-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.guarantee .payment-card .amount {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+}
+
+.guarantee .what-live {
+  margin: 2.5rem 0 2rem;
+}
+
+.guarantee .what-live p {
+  font-size: 0.95rem;
+  color: var(--slate);
+  line-height: 1.65;
+  max-width: 750px;
+  margin-top: 0.5rem;
+}
+
+.guarantee .clock-intro {
+  font-size: 0.95rem;
+  color: var(--slate);
+  line-height: 1.65;
+  max-width: 800px;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.guarantee .clock-closing {
+  font-size: 0.95rem;
+  color: var(--ink);
+  font-weight: 600;
+  margin: 1.5rem 0 0;
+}
+
+.guarantee .checklist-num {
   list-style: none;
   padding: 0;
   counter-reset: gcl;
 }
-.guarantee .checklist-items li {
+
+.guarantee .checklist-num li {
   counter-increment: gcl;
-  padding: 0.6rem 0;
+  padding: 0.55rem 0;
   font-size: 0.95rem;
   line-height: 1.55;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
 }
-.guarantee .checklist-items li::before {
+
+.guarantee .checklist-num li::before {
   content: counter(gcl);
   display: inline-flex;
   align-items: center;
@@ -467,7 +685,7 @@ img { max-width: 100%; height: auto; display: block; }
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--ff-blue);
+  background: var(--blue);
   color: #fff;
   font-weight: 700;
   font-size: 0.8rem;
@@ -475,40 +693,90 @@ img { max-width: 100%; height: auto; display: block; }
   margin-top: 0.1rem;
 }
 
-/* Section I: Delivery */
-.delivery {
-  background: var(--ff-paper);
-  padding: 5rem 0;
+.guarantee .checklist-btn {
+  margin-top: 2rem;
 }
+
+/* ============================================
+   I: DELIVERY
+   ============================================ */
+.delivery {
+  background: var(--paper);
+}
+
+.delivery .intro-p {
+  font-size: 1.05rem;
+  color: var(--slate);
+  max-width: 800px;
+  line-height: 1.65;
+  margin: 1rem 0 2rem;
+}
+
+.delivery .col-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.75rem;
+}
+
+.delivery .col-list li {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.delivery .col-list li::before {
+  content: '\2713';
+  color: var(--green);
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
 .delivery .ai-card {
-  background: var(--ff-blue-soft);
-  border: 1px solid var(--ff-blue-line);
+  background: var(--blue-soft);
+  border: 1px solid var(--blue-line);
   border-radius: 16px;
   padding: 2rem;
   margin-top: 2rem;
 }
 
-/* Section J: Post Go-Live */
-.post-golive {
-  background: var(--ff-paper);
-  padding: 5rem 0;
+.delivery .ai-card p {
+  color: var(--slate);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-top: 0.5rem;
 }
+
+/* ============================================
+   J: POST GO-LIVE
+   ============================================ */
+.post-golive {
+  background: var(--paper);
+}
+
 .post-golive .lead {
   font-size: 1.1rem;
-  color: var(--ff-slate);
+  color: var(--slate);
   max-width: 700px;
   margin-bottom: 2rem;
   line-height: 1.7;
 }
+
 .post-golive table {
   width: 100%;
-  border-collapse: collapse;
-  border: 1px solid var(--ff-line);
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--line);
   border-radius: 12px;
   overflow: hidden;
 }
+
 .post-golive th {
-  background: var(--ff-blue-ink);
+  background: var(--blue-ink);
   color: #fff;
   padding: 0.9rem 1.5rem;
   text-align: left;
@@ -516,25 +784,47 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 700;
   font-size: 0.95rem;
 }
+
 .post-golive td {
   padding: 0.9rem 1.5rem;
   font-size: 0.95rem;
-  border-bottom: 1px solid var(--ff-line);
+  border-bottom: 1px solid var(--line);
   background: #fff;
 }
+
 .post-golive tr:last-child td {
   border-bottom: none;
 }
 
-/* Section K: Ideal Customer */
+/* ============================================
+   K: IDEAL CUSTOMER
+   ============================================ */
 .ideal-customer {
-  background: var(--ff-paper);
-  padding: 5rem 0;
+  background: var(--paper);
 }
+
+.ideal-customer .warning {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.ideal-customer .sub-warning {
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--slate);
+  margin-bottom: 2.5rem;
+}
+
 .ideal-customer .check-list {
   list-style: none;
   padding: 0;
+  margin-top: 0.5rem;
 }
+
 .ideal-customer .check-list li {
   padding: 0.5rem 0;
   font-size: 0.95rem;
@@ -543,62 +833,71 @@ img { max-width: 100%; height: auto; display: block; }
   align-items: flex-start;
   gap: 0.5rem;
 }
+
 .ideal-customer .check-list li::before {
   font-weight: 700;
   font-size: 1.1rem;
   flex-shrink: 0;
   margin-top: 0.05rem;
 }
+
 .ideal-customer .check-list.green li::before {
   content: '\2713';
-  color: var(--ff-green);
-}
-.ideal-customer .check-list.red li::before {
-  content: '\2717';
-  color: var(--ff-red);
+  color: var(--green);
 }
 
-/* Section L: Roadmap */
+.ideal-customer .check-list.red li::before {
+  content: '\2717';
+  color: var(--red);
+}
+
+/* ============================================
+   L: ROADMAP
+   ============================================ */
 .roadmap {
-  background: var(--ff-blue-ink);
+  background: var(--blue-ink);
   color: #fff;
-  padding: 5rem 0;
   text-align: center;
 }
+
 .roadmap h2 {
   color: #fff;
   margin-bottom: 0.5rem;
 }
-.roadmap .roadmap-subtitle {
+
+.roadmap .roadmap-sub {
   color: rgba(255,255,255,0.7);
   font-size: 1.05rem;
   margin-bottom: 2.5rem;
 }
+
 .roadmap .flow {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  margin-bottom: 2.5rem;
 }
+
 .roadmap .flow-step {
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 12px;
-  padding: 1rem 1.5rem;
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
   font-size: 0.95rem;
   color: rgba(255,255,255,0.8);
   white-space: nowrap;
 }
+
 .roadmap .flow-step.current {
-  background: var(--ff-blue);
-  border-color: var(--ff-blue);
+  background: var(--blue);
+  border-color: var(--blue);
   color: #fff;
-  font-size: 1.05rem;
-  padding: 1.15rem 1.75rem;
 }
+
 .roadmap .flow-arrow {
   color: rgba(255,255,255,0.4);
   font-size: 1.25rem;
@@ -606,21 +905,51 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 0 0.25rem;
 }
 
-/* Section M: Why */
-.why-section {
-  background: var(--ff-paper);
-  text-align: center;
-  padding: 5rem 0;
+.roadmap .step-descs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  text-align: left;
+  margin-top: 1rem;
 }
+
+.roadmap .step-desc h4 {
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.roadmap .step-desc p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.roadmap .roadmap-footer {
+  color: rgba(255,255,255,0.65);
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 2.5rem auto 0;
+  line-height: 1.65;
+}
+
+/* ============================================
+   M: WHY SECTION
+   ============================================ */
+.why-section {
+  background: var(--paper);
+  text-align: center;
+}
+
 .why-section .why-items {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   margin-top: 2.5rem;
 }
-.why-section .why-item {
-  padding: 0;
-}
+
 .why-section .why-icon {
   display: inline-flex;
   align-items: center;
@@ -628,84 +957,116 @@ img { max-width: 100%; height: auto; display: block; }
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--ff-blue-soft);
-  color: var(--ff-blue);
+  background: var(--blue-soft);
+  color: var(--blue);
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
+
 .why-section .why-item h3 {
   margin-bottom: 0.35rem;
 }
+
 .why-section .why-item p {
   font-size: 0.9rem;
-  color: var(--ff-slate);
+  color: var(--slate);
   line-height: 1.55;
 }
 
-/* Section N: Finance Options */
+/* ============================================
+   N: FINANCE OPTIONS
+   ============================================ */
 .finance-options {
-  background: var(--ff-blue-band);
+  background: var(--blue-band);
   text-align: center;
-  padding: 5rem 0;
 }
+
 .finance-options p {
   font-size: 1.1rem;
-  color: var(--ff-slate);
-  max-width: 600px;
+  color: var(--slate);
+  max-width: 650px;
   margin: 0 auto;
   line-height: 1.7;
 }
 
-/* Section O: FAQ */
-.faq {
-  background: var(--ff-paper);
-  padding: 5rem 0;
+.finance-options .footnote {
+  font-size: 0.85rem;
+  color: var(--slate);
+  margin-top: 1.5rem;
+  line-height: 1.5;
 }
+
+/* ============================================
+   O: FAQ
+   ============================================ */
+.faq {
+  background: var(--paper);
+}
+
+.faq dl {
+  max-width: 850px;
+}
+
 .faq dt {
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
-  color: var(--ff-ink);
+  color: var(--ink);
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--ff-line);
+  border-top: 1px solid var(--line);
 }
+
 .faq dt:first-of-type {
   margin-top: 1.5rem;
   border-top: none;
   padding-top: 0;
 }
+
 .faq dd {
   margin: 0.75rem 0 0;
   font-size: 0.95rem;
-  color: var(--ff-slate);
+  color: var(--slate);
   line-height: 1.65;
-  max-width: 750px;
 }
 
-/* Section P: Final CTA */
+/* ============================================
+   P: FINAL CTA
+   ============================================ */
 .final-cta {
-  background: var(--ff-blue-ink);
+  background: var(--blue-ink);
   color: #fff;
   text-align: center;
-  padding: 5rem 0;
 }
+
 .final-cta h2 {
   color: #fff;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
+
+.final-cta .cta-sub {
+  color: rgba(255,255,255,0.75);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.65;
+}
+
 .final-cta .btn-group {
   margin-bottom: 1.5rem;
 }
+
 .final-cta .email-link {
   display: inline-block;
   color: rgba(255,255,255,0.7);
   font-size: 0.95rem;
   margin-bottom: 3rem;
 }
+
 .final-cta .email-link:hover {
   color: #fff;
 }
+
 .final-cta .footer-strip {
   border-top: 1px solid rgba(255,255,255,0.15);
   padding-top: 2rem;
@@ -717,20 +1078,22 @@ img { max-width: 100%; height: auto; display: block; }
   text-transform: uppercase;
 }
 
-/* Section dividers */
-.section-divider {
-  border: none;
-  border-top: 1px solid var(--ff-line);
-}
-
-/* Utility */
+/* --- Utility --- */
 .text-center { text-align: center; }
 .mb-1 { margin-bottom: 1rem; }
 .mb-2 { margin-bottom: 2rem; }
 .mb-3 { margin-bottom: 3rem; }
+.mt-1 { margin-top: 1rem; }
 .mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
 
-/* Responsive overrides */
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .nav-links a:not(.nav-btn) {
+    display: none;
+  }
+}
+
 @media (max-width: 575px) {
   .section { padding: 3rem 0; }
   .btn { padding: 0.75rem 1.5rem; font-size: 0.95rem; }
@@ -740,283 +1103,353 @@ img { max-width: 100%; height: auto; display: block; }
     padding: 0.25rem 0;
   }
   .track-record .stats { gap: 2rem; }
+  .comparison table { font-size: 0.85rem; }
+  .comparison th, .comparison td { padding: 0.7rem 0.75rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- A: PROBLEM LANDSCAPE -->
-<section class="problem-landscape">
+<!-- ============================================
+     NAV
+     ============================================ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="ERP Experts Home">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" fill="#7C3AED" stroke="#7C3AED" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M16 2L28 9L16 16L4 9L16 2Z" fill="#A78BFA"/>
+        <path d="M16 16L28 9V23L16 30V16Z" fill="#6D28D9"/>
+        <path d="M4 9L16 16V30L4 23V9Z" fill="#C4B5FD"/>
+      </svg>
+      <span class="nav-logo-text">ERP EXPERTS</span>
+    </a>
+    <div class="nav-links">
+      <a href="#offer">The Offer</a>
+      <a href="#guarantee">The Guarantee</a>
+      <a href="#delivery">How We Deliver</a>
+      <a href="#faq">FAQ</a>
+      <a href="#book" class="nav-btn">Let's Talk &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================
+     A: PROBLEM LANDSCAPE
+     ============================================ -->
+<section class="problem section">
   <div class="container">
     <h1>An ERP project today is a gamble. And the odds are against you.</h1>
+    <p class="subtitle">Here's what a new finance and operations system looks like for most businesses right now, before they've even started.</p>
     <ul>
-      <li>Six-figure price tags that swell before a single invoice is processed.</li>
-      <li>Timelines that balloon from six months to eighteen, with no end in sight.</li>
-      <li>No guarantees. You pay regardless of whether the system works.</li>
-      <li>Scope creep that turns a finance implementation into an everything-anywhere project, and then into a write-off.</li>
+      <li>Six-figure price tags before scope creep adds more. You sign up for one number and pay another.</li>
+      <li>Half a year or more from kick-off to go-live, with the finish line moving the whole way there.</li>
+      <li>No partner will stake their own money on the outcome. If it goes wrong, the cost is entirely yours.</li>
     </ul>
     <blockquote>
-      Through 2027, more than 70% of ERP implementations will fail to meet their stated business objectives.
-      <cite>Gartner</cite>
+      Gartner predicts that by 2027, more than 70% of ERP implementations will fail to fully meet their original business case goals, with as many as 25% failing catastrophically.
     </blockquote>
-    <p class="pivot">We built a methodology to flip every one of those numbers on its head. Fixed price. Fixed timeline. A money-back guarantee. Scope that cannot creep.</p>
-    <a href="#book" class="btn btn-primary">Let's Talk &rarr;</a>
+    <p class="pivot">We built a methodology to flip every one of those numbers on its head. Fixed price. Fixed timeline. A money-back guarantee. Scope that can't creep.</p>
+    <a href="#book" class="btn btn-white">Let's Talk &rarr;</a>
   </div>
 </section>
 
-<!-- B: HERO -->
-<section class="hero">
+<!-- ============================================
+     B: HERO
+     ============================================ -->
+<section class="hero section" id="offer">
   <div class="container">
     <h1>NetSuite Financials. Live in 30 days. Or you don't pay.</h1>
     <p>Fixed price. Clear scope. AI-accelerated delivery. From sign-off to go-live in under a month, with a guarantee that makes sure we deliver.</p>
     <div class="btn-group">
       <a href="#book" class="btn btn-primary">Let's Talk &rarr;</a>
-      <a href="../checklist/" class="btn btn-outline">View the Pre-Flight Checklist &darr;</a>
+      <a href="/financialsfirst/checklist" class="btn btn-outline">View the Pre-Flight Checklist &darr;</a>
     </div>
   </div>
 </section>
 
-<!-- C: GUARANTEE PROOF STRIP -->
-<section class="guarantee-strip">
+<!-- ============================================
+     C: GUARANTEE PROOF STRIP
+     ============================================ -->
+<section class="guarantee-strip section">
   <div class="container">
     <div class="grid-3">
       <div class="step">
-        <div class="step-number">1</div>
+        <div class="step-num">1</div>
         <h3>Payment one</h3>
-        <p>&pound;15,000 on signature. That reserves your slot and kicks off the pre-flight checklist. No hidden fees, no surprises.</p>
+        <p>&pound;15,000 when you sign. We schedule the 30-day window and work begins.</p>
       </div>
       <div class="step">
-        <div class="step-number">2</div>
+        <div class="step-num">2</div>
         <h3>Payment two</h3>
-        <p>&pound;15,000 only when you are live. If we miss the 30-day window, this payment is waived entirely. The risk sits with us.</p>
+        <p>&pound;15,000 only when you are live. If we miss 30 calendar days from pre-flight sign-off, this payment is waived. Permanently. It is written into your contract.</p>
       </div>
       <div class="step">
-        <div class="step-number">3</div>
-        <h3>Go-live moment</h3>
-        <p>A production NetSuite instance, processing real transactions, with your team trained and confident. That is the only definition of done.</p>
+        <div class="step-num">3</div>
+        <h3>Go-live</h3>
+        <p>Your team raises invoices, pays bills, reconciles bank accounts and produces a trial balance in production NetSuite. Not a test environment. Not in parallel. Actually live.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- D: TRACK RECORD -->
-<section class="track-record">
+<!-- ============================================
+     D: TRACK RECORD
+     ============================================ -->
+<section class="track-record section">
   <div class="container">
     <div class="stats">
       <div class="stat-item">
-        <div class="stat-number">Since 2005</div>
-        <div class="stat-label">NetSuite only. No distractions.</div>
+        <div class="stat-num">Since 2005</div>
+        <div class="stat-label">NetSuite, only NetSuite, since 2005</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">350+</div>
-        <div class="stat-label">Projects delivered</div>
+        <div class="stat-num">350+</div>
+        <div class="stat-label">Projects completed</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">33,000+</div>
+        <div class="stat-num">33,000+</div>
         <div class="stat-label">Support tickets resolved</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- E: WHY FINANCE FIRST -->
-<section class="why-finance">
+<!-- ============================================
+     E: WHY FINANCE FIRST
+     ============================================ -->
+<section class="why-finance section">
   <div class="container">
     <h2>Finance is the core of your business. Everything else flows from it.</h2>
-    <p class="intro">The Financials First approach is built on a simple observation: your finance function touches every transaction, every supplier, every customer, and every report. Get that foundation right, and the rest of your system can be built on solid ground. Skip it, or bury it inside a bloated all-at-once project, and you are building on sand.</p>
-    <div class="grid-3">
+    <div class="intro mt-1">
+      <p>Finance is the core of every business. Everything else flows through it and out of it. Get it right first and you have a foundation you can build anything on. Try to do everything at once and you have the reason most ERP projects fail.</p>
+    </div>
+    <div class="intro">
+      <p>We are not trying to sell you CRM. We are not trying to sell you HR or payroll or inventory. We want to get your finance system right and embedded first, because until that's done, nothing else sits on solid ground.</p>
+    </div>
+    <div class="intro">
+      <p>Once it is done, you can expand into whatever makes sense for your business. That might be other NetSuite modules. It might be best-in-breed software for CRM, HR or payroll that connects into NetSuite. The path is yours. But getting finance right first, quickly, is imperative to a successful transformation. That is the whole point of this.</p>
+    </div>
+    <div class="grid-3 mt-2">
       <div class="card">
         <h3>Everything flows through the finance function</h3>
-        <p style="color:var(--ff-slate);font-size:0.95rem;line-height:1.6;margin-top:0.5rem;">Sales orders, purchase orders, inventory valuations, payroll, reporting. Finance is not a department. It is the central nervous system of your business. When it works, everything else can be wired in.</p>
+        <p>Sales, operations, HR, every part of the business produces financial data. A reliable finance system gives you visibility across the whole organisation, not just the ledger.</p>
       </div>
       <div class="card">
         <h3>Trying to do everything at once is why projects fail</h3>
-        <p style="color:var(--ff-slate);font-size:0.95rem;line-height:1.6;margin-top:0.5rem;">The industry default is a single phase covering finance, CRM, inventory, ecommerce, and HR. Each stream adds complexity, risk, and delay. We cut the knot: finance first, then expand.</p>
+        <p>Scope creep starts the moment you add CRM, inventory and HR to the same implementation. A fixed finance-only scope is not a limitation. It is the reason we can deliver in 30 days with a guarantee behind it.</p>
       </div>
       <div class="card">
         <h3>Expand on your terms, when the core is stable</h3>
-        <p style="color:var(--ff-slate);font-size:0.95rem;line-height:1.6;margin-top:0.5rem;">Once your financials are live and your team is confident, you add modules at your own pace. No pressure, no bundled scope you do not need yet. Your roadmap, your speed.</p>
+        <p>Once finance is live and trusted, you add the next thing. Other NetSuite modules, best-in-breed CRM, HR, payroll that connects in. One step at a time, each one bedded in before the next starts.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- F: COMPARISON TABLE -->
-<section class="comparison">
+<!-- ============================================
+     F: COMPARISON TABLE
+     ============================================ -->
+<section class="comparison section">
   <div class="container">
     <h2>Two different products. Not two different prices for the same thing.</h2>
-    <p class="table-subtitle">Financials First is not a discounted version of a traditional ERP project. It is a fundamentally different approach.</p>
-    <div style="overflow-x:auto;">
+    <p class="table-subtitle">A traditional ERP implementation and Financials First Fast-Track are not the same job at different price points. The scope is fundamentally different. That is what makes the price and the timeline possible.</p>
+    <div class="table-wrap">
       <table>
         <thead>
           <tr>
             <th></th>
-            <th>Traditional ERP Project</th>
-            <th>Financials First</th>
+            <th>Traditional ERP Implementation</th>
+            <th>Financials First Fast-Track</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Scope</td>
-            <td>Everything, everywhere, all at once</td>
-            <td>Financials only. One module, done right.</td>
+            <td>Full business system: finance, CRM, inventory, HR, payroll, custom integrations, multiple entities, all in one project</td>
+            <td>Finance function only. Core ledgers, AP, AR, bank, tax, workflows and go-live. Everything else is phase two or later.</td>
           </tr>
           <tr>
             <td>Timeline</td>
-            <td>12 to 24 months</td>
-            <td>30 days</td>
+            <td>Typically 6 to 18 months from kick-off to go-live, often longer</td>
+            <td>30 calendar days from pre-flight sign-off to go-live</td>
           </tr>
           <tr>
             <td>Price</td>
-            <td>&pound;100,000 to &pound;500,000+</td>
-            <td>Fixed &pound;30,000</td>
+            <td>&pound;100,000 to &pound;200,000+ depending on scope, plus day-rate overruns</td>
+            <td>&pound;30,000 fixed. No day rates. No overrun invoices.</td>
           </tr>
           <tr>
-            <td>Risk</td>
-            <td>All on you</td>
-            <td>On us: money-back guarantee</td>
+            <td>Who carries the risk</td>
+            <td>The customer. Overruns are billed at day rate. There is no financial consequence for the partner if the project runs late.</td>
+            <td>ERP Experts. If we miss 30 days, the final &pound;15,000 is waived. The risk is ours to carry.</td>
           </tr>
           <tr>
-            <td>Delivery</td>
-            <td>Manual, waterfall, consultant-dependent</td>
-            <td>AI-accelerated, repeatable methodology</td>
+            <td>Delivery method</td>
+            <td>Large consultant teams working across a broad scope. More hours equals more cost.</td>
+            <td>AI-accelerated technical build with ERP Experts leading the relationship. Less time on the job, same outcome.</td>
           </tr>
           <tr>
             <td>Customisation</td>
-            <td>Unlimited, scope expands with it</td>
-            <td>Best-practice configuration. No bespoke development.</td>
+            <td>Extensive. Often includes custom SuiteScript, bespoke integrations and process redesign built into the project.</td>
+            <td>None in scope. Configuration only. Customisation becomes a separate, later phase once the core is stable.</td>
           </tr>
           <tr>
-            <td>Payment</td>
-            <td>Milestone-based, pay regardless of outcome</td>
-            <td>50% on signature, 50% only on go-live</td>
+            <td>Payment terms</td>
+            <td>Typically staged payments across the project. Final payment often tied to a go-live that keeps moving.</td>
+            <td>50% on signature. 50% on go-live. If we miss 30 days, the second payment is waived.</td>
           </tr>
           <tr>
-            <td>Post go-live</td>
-            <td>Handover and walk away</td>
-            <td>12-month aftercare included in the model</td>
+            <td>Post go-live support</td>
+            <td>Variable. Often a separate negotiation. Some partners disengage after handover.</td>
+            <td>Gold Aftercare from day 31. 30 hours a month, included as standard, no gap in cover after go-live.</td>
           </tr>
           <tr>
             <td>Best for</td>
-            <td>Organisations that can absorb 18 months of uncertainty</td>
-            <td>Organisations that need a financial backbone, fast, with zero drama</td>
+            <td>Businesses ready to transform multiple functions simultaneously, with the budget, time and internal resource to support a large programme</td>
+            <td>Businesses that need a trusted finance foundation first, quickly and at a defined cost, before expanding into other areas</td>
           </tr>
         </tbody>
       </table>
     </div>
+    <p class="table-footnote">* NetSuite licence fees are separate from the implementation fee in both cases and are quoted directly by Oracle NetSuite.</p>
   </div>
 </section>
 
-<!-- G: OFFER SECTION -->
-<section class="offer">
+<!-- ============================================
+     G: OFFER SECTION
+     ============================================ -->
+<section class="offer-scope section" id="offer-scope">
   <div class="container">
     <h2>Financials First Fast-Track</h2>
-    <div class="price">&pound;30,000</div>
-    <p class="price-detail">Fixed price. 50% on signature, 50% on go-live.</p>
+    <p class="intro-text">Financials First Fast-Track replaces your legacy finance system with NetSuite's core financial suite, configured, migrated, tested and live in 30 days. The scope is fixed and published below, which is exactly what makes the price and the timeline possible. You get a complete, production-ready finance platform and a roadmap for everything that comes next. No open-ended statements of work. No surprise invoices.</p>
 
-    <div class="aftercare">
-      <strong>12-month aftercare mandatory:</strong> Gold plan, 30 hours per month of hands-on support, at &pound;4,950/month. This is not optional. It is how we make sure your team succeeds after go-live.
+    <div class="aftercare-note">
+      Financials First Fast-Track is offered alongside a mandatory 12-month aftercare contract. This is not a bolt-on. Getting a finance system live in 30 days is the start, not the finish. The aftercare contract ensures we are with you through the first year: answering questions, fixing issues and making sure the system keeps working for your business. Gold aftercare is 30 hours a month, at &pound;4,950 per month. This is included as standard with every Financials First Fast-Track engagement.
     </div>
 
-    <div class="grid-2 mt-2">
+    <div class="grid-2">
       <div>
-        <div class="col-header" style="color:var(--ff-green);">&#10003; Included</div>
+        <div class="col-header" style="color:var(--green);">&#10003; Included</div>
         <ul class="check-list green">
-          <li>NetSuite Financials First implementation</li>
-          <li>Chart of accounts design and build</li>
-          <li>Accounts payable and receivable</li>
-          <li>General ledger and financial reporting</li>
-          <li>Bank reconciliation setup</li>
-          <li>Multi-currency and multi-subsidiary (if needed)</li>
-          <li>Tax configuration (VAT, sales tax)</li>
-          <li>Role-based dashboards for finance team</li>
-          <li>End-user training and go-live handover</li>
+          <li>Chart of Accounts setup and configuration</li>
+          <li>AP, AR, Bank and Tax module setup</li>
+          <li>One subsidiary (OneWorld licence)</li>
+          <li>Historical data migration (3 years standard, 10+ available)</li>
+          <li>Approval workflows and period-close process</li>
+          <li>Native integrations: bank feeds and payments</li>
+          <li>Testing and go-live cutover</li>
+          <li>UK / EMEA localisation</li>
+          <li>Core NetSuite ERP (financials)</li>
         </ul>
       </div>
       <div>
-        <div class="col-header" style="color:var(--ff-red);">&#10007; Not included</div>
+        <div class="col-header" style="color:var(--red);">&#10007; Not included</div>
         <ul class="check-list red">
-          <li>CRM or sales force automation</li>
-          <li>Inventory or warehouse management</li>
-          <li>Ecommerce or website integration</li>
-          <li>HR, payroll, or workforce management</li>
-          <li>Custom SuiteScript development</li>
-          <li>Third-party system integrations</li>
-          <li>Data migration from legacy systems (beyond finance)</li>
+          <li>Inventory / WMS</li>
+          <li>Order Management</li>
+          <li>Manufacturing</li>
+          <li>CRM setup and configuration</li>
+          <li>SuiteCommerce / SuiteProjects</li>
+          <li>Custom SuiteScript and complex integrations</li>
+          <li>Multi-entity beyond one subsidiary</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- H: GUARANTEE -->
-<section class="guarantee">
+<!-- ============================================
+     H: GUARANTEE
+     ============================================ -->
+<section class="guarantee section" id="guarantee">
   <div class="container">
     <h2>Live in 30 days. Or the final 50% is waived.</h2>
-    <p style="font-size:1.1rem;color:var(--ff-slate);max-width:700px;line-height:1.7;margin:1rem 0 2rem;">
-      Two payments. &pound;15,000 on signature to reserve your slot and begin pre-flight. The remaining &pound;15,000 is due only when your NetSuite Financials instance is live, processing real transactions, with your team trained. If day 31 arrives and you are not live, that second payment is gone. We do not collect it. The risk is ours.
-    </p>
+    <p class="tagline">This is not marketing language. It is a payment term written into your contract.</p>
 
-    <h3 style="margin-bottom:1rem;">Pre-flight checklist: what we need from you</h3>
-    <ol class="checklist-items">
-      <li>Chart of accounts (current structure, or we design one together)</li>
-      <li>Bank account details for reconciliation setup</li>
-      <li>Tax registration numbers and filing requirements</li>
-      <li>Opening balances for all GL accounts</li>
-      <li>List of vendors and customers with open balances</li>
-      <li>User list with role descriptions</li>
-      <li>Sample reports you rely on today</li>
-      <li>Signed access to your NetSuite environment</li>
+    <div class="payment-cards">
+      <div class="payment-card">
+        <div class="amount">&pound;15,000</div>
+        <p style="color:var(--slate);font-size:0.95rem;line-height:1.55;">On signature, when you sign and we schedule your 30-day window.</p>
+      </div>
+      <div class="payment-card">
+        <div class="amount">&pound;15,000</div>
+        <p style="color:var(--slate);font-size:0.95rem;line-height:1.55;">On go-live, only when your system is live. If go-live exceeds 30 calendar days from pre-flight checklist completion, the final 50% is waived. Permanently.</p>
+      </div>
+    </div>
+
+    <div class="what-live">
+      <h3>What "live" means</h3>
+      <p>Your team can process real transactions in production NetSuite: raise sales invoices, enter and pay supplier bills, reconcile bank accounts, and produce a trial balance. Live means your finance function runs in NetSuite, not in a test environment and not in parallel with the old system indefinitely.</p>
+    </div>
+
+    <h3>The clock starts when you're ready. Here's what ready means.</h3>
+    <p class="clock-intro">Before the 30-day window opens, we run a short discovery phase together. Initial conversations, a review of your current setup and a collaborative working session to work through the items below. We do this with you, not hand it to you and wait. The checklist is not a barrier, it is the point at which both sides agree everything is in place and we can start with confidence.</p>
+    <p class="clock-closing">The 30 days begin the day all eight items are signed off.</p>
+
+    <ol class="checklist-num">
+      <li>Your target account structure agreed and approved by your FD or FC.</li>
+      <li>Trial balances, open AP/AR and history exported from Xero, Sage or QuickBooks in our template.</li>
+      <li>A cut-off date confirmed, with a trial balance reconciled to that date.</li>
+      <li>Bank accounts, VAT registrations and tax codes documented and verified.</li>
+      <li>One person on your side with decision authority and time protected in their diary.</li>
+      <li>Who needs access, what they do, and who approves what.</li>
+      <li>A committed cut-over date, with your team available for training and go-live support.</li>
+      <li>A agreed BRD signed off by your project owner before work begins.</li>
     </ol>
 
-    <div class="mt-2">
-      <a href="../checklist/" class="btn btn-outline">View the Full Pre-Flight Checklist &darr;</a>
+    <div class="checklist-btn">
+      <a href="/financialsfirst/checklist" class="btn btn-outline">Download the Pre-Flight Checklist &darr;</a>
     </div>
   </div>
 </section>
 
-<!-- I: DELIVERY -->
-<section class="delivery">
+<!-- ============================================
+     I: DELIVERY
+     ============================================ -->
+<section class="delivery section" id="delivery">
   <div class="container">
     <h2>People where people matter. AI where speed matters.</h2>
-    <div class="grid-2 mt-2">
+    <p class="intro-p">Thirty-day delivery is possible because we split the work deliberately. ERP Experts leads everything that touches your people. Our AI delivery capability handles the technical build at a pace that traditional consultancy can't match.</p>
+
+    <div class="grid-2">
       <div>
-        <h3>Relationship</h3>
-        <ul class="check-list green" style="margin-top:0.75rem;">
-          <li>Dedicated project lead, same person from kick-off to go-live</li>
-          <li>Weekly check-in calls, not a black box</li>
-          <li>Design workshops for chart of accounts, reporting, and workflows</li>
-          <li>Your team trained before go-live, not handed a manual</li>
-          <li>Go-live day: we are on the call with you</li>
-          <li>12 months of aftercare, not a handover and goodbye</li>
+        <h3>The relationship and the outcome</h3>
+        <ul class="col-list">
+          <li>Your relationship, from first call to long after go-live.</li>
+          <li>Training your team on the system they'll actually use.</li>
+          <li>Change management and adoption.</li>
+          <li>Ongoing aftercare and roadmap planning.</li>
         </ul>
       </div>
       <div>
-        <h3>Technical build</h3>
-        <ul class="check-list green" style="margin-top:0.75rem;">
-          <li>AI-accelerated configuration: rules, roles, reports generated in hours, not weeks</li>
-          <li>Pre-built Financials First template, refined over 350+ projects</li>
-          <li>Automated testing of every financial workflow before you see it</li>
-          <li>Bank feeds, tax codes, and multi-currency set up from a proven playbook</li>
-          <li>Dashboards that surface what your finance team actually needs</li>
-          <li>No custom code. Best-practice configuration that NetSuite supports natively.</li>
+        <h3>The technical build</h3>
+        <ul class="col-list">
+          <li>NetSuite configuration to your agreed design.</li>
+          <li>Data migration, validation and reconciliation.</li>
+          <li>Workflow and period-close build.</li>
+          <li>Native integration setup: bank feeds, payments.</li>
+          <li>Automated testing across the full scope.</li>
         </ul>
       </div>
     </div>
 
     <div class="ai-card">
       <h3>A word on AI oversight</h3>
-      <p style="color:var(--ff-slate);font-size:0.95rem;line-height:1.65;margin-top:0.5rem;">AI accelerates the build, but it does not replace judgment. Every AI-generated configuration is reviewed and signed off by a senior NetSuite consultant with years of hands-on experience. The AI handles the repetitive 80%. The human handles the 20% that matters. You get speed without sacrificing quality.</p>
+      <p>AI accelerates the work. Our consultants are accountable for it. Every configuration decision is reviewed and signed off by a named ERP Experts consultant before it is applied to your environment. Data migration is validated against your agreed opening balances before it touches production. Testing is reviewed by our team before UAT begins. The simplest way to put it: AI writes the first draft. Our team reviews, corrects and approves everything. You are not handing your finance function to an algorithm. You are working with ERP Experts, who use AI to do in days what would otherwise take months.</p>
     </div>
   </div>
 </section>
 
-<!-- J: POST GO-LIVE -->
-<section class="post-golive">
+<!-- ============================================
+     J: POST GO-LIVE
+     ============================================ -->
+<section class="post-golive section">
   <div class="container">
-    <h2>Day 31 is where most partners disappear. It is where we have built our reputation.</h2>
-    <p class="lead">Your team will have questions. Processes will need tuning. The first month-end close will surface things you did not anticipate. That is why aftercare is not an add-on. It is built into the model.</p>
+    <h2>Day 31 is where most partners disappear. It's where we've built our reputation.</h2>
+    <p class="lead">21 years and 33,000+ support tickets of aftercare. Here's what the first months on NetSuite look like with ERP Experts behind you.</p>
 
+    <h3 class="mb-1">Gold Aftercare, from day 31</h3>
     <div style="overflow-x:auto;">
       <table>
         <thead>
@@ -1024,60 +1457,63 @@ img { max-width: 100%; height: auto; display: block; }
             <th>Plan</th>
             <th>Hours per month</th>
             <th>Monthly cost</th>
-            <th>Duration</th>
+            <th>Notes</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Gold Aftercare</strong></td>
-            <td>30 hours</td>
-            <td>&pound;4,950</td>
-            <td>12 months (mandatory)</td>
+            <td><strong>Gold 30</strong></td>
+            <td>30 hrs</td>
+            <td>&pound;4,950 /mo</td>
+            <td>Included as standard with every Financials First Fast-Track engagement</td>
           </tr>
         </tbody>
       </table>
     </div>
-
-    <p style="font-size:0.9rem;color:var(--ff-slate);margin-top:1.25rem;line-height:1.6;">Aftercare covers support, tuning, training, reporting changes, and any configuration adjustments your team needs as they settle into the system. It is not a watching brief. It is hands-on, every month.</p>
   </div>
 </section>
 
-<!-- K: IDEAL CUSTOMER -->
-<section class="ideal-customer">
+<!-- ============================================
+     K: IDEAL CUSTOMER / NOT A FIT
+     ============================================ -->
+<section class="ideal-customer section">
   <div class="container">
-    <h2 class="text-center mb-2">Who this is for. And who it is not.</h2>
+    <p class="warning">We'd rather tell you now than at week three.</p>
+    <p class="sub-warning">A fixed price and a guaranteed timeline only work when the fit is right. Here's how to know.</p>
+
     <div class="grid-2">
       <div class="card">
-        <div class="col-header" style="color:var(--ff-green);">&#10003; Ideal for</div>
-        <ul class="check-list green" style="margin-top:0.5rem;">
-          <li>Mid-market businesses that need a financial backbone, fast</li>
-          <li>Organisations migrating from legacy systems (Sage, QuickBooks, Xero)</li>
-          <li>Private equity-backed companies that need auditable financials under time pressure</li>
-          <li>Businesses that value a fixed price and a clear scope over endless flexibility</li>
-          <li>Finance teams that want best-practice configuration, not bespoke development</li>
-          <li>Companies planning to expand into CRM, inventory, or ecommerce later, on their own timeline</li>
+        <div class="col-header" style="color:var(--green);">&#10003; Ideal customer</div>
+        <ul class="check-list green">
+          <li>Growing UK business, roughly &pound;5m to &pound;100m turnover</li>
+          <li>Finance-led decision, with an FD or FC sponsoring the project</li>
+          <li>Outgrowing Xero, Sage or QuickBooks</li>
+          <li>Wants financials solid first, then expansion in phases</li>
+          <li>Willing to commit to the pre-flight checklist before the clock starts</li>
         </ul>
       </div>
       <div class="card">
-        <div class="col-header" style="color:var(--ff-red);">&#10007; Not a fit</div>
-        <ul class="check-list red" style="margin-top:0.5rem;">
-          <li>Organisations that need CRM, inventory, and ecommerce live on day one</li>
-          <li>Businesses that require heavy customisation or bespoke SuiteScript development</li>
-          <li>Companies that want to negotiate scope item by item</li>
-          <li>Teams unwilling to complete the pre-flight checklist within the first week</li>
-          <li>Organisations that prefer time-and-materials billing with no fixed end date</li>
-          <li>Businesses that are not ready to commit to a 12-month aftercare partnership</li>
+        <div class="col-header" style="color:var(--red);">&#10007; Not a fit</div>
+        <ul class="check-list red">
+          <li>Needs inventory, manufacturing or e-commerce live on day one</li>
+          <li>Multiple entities required at go-live</li>
+          <li>Heavy custom integrations as a launch requirement</li>
+          <li>No internal owner with time and authority</li>
+          <li>Wants to redesign processes during the implementation</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- L: ROADMAP -->
-<section class="roadmap">
+<!-- ============================================
+     L: ROADMAP
+     ============================================ -->
+<section class="roadmap section">
   <div class="container">
     <h2>One foundation. Your direction.</h2>
-    <p class="roadmap-subtitle">Start with finance. Expand when you are ready.</p>
+    <p class="roadmap-sub">Finance is the only fixed starting point. Where you go after that depends entirely on your business and where you will get the best return. We build the roadmap around your objectives, not ours.</p>
+
     <div class="flow">
       <div class="flow-step current">Finance First</div>
       <div class="flow-arrow">&rarr;</div>
@@ -1089,11 +1525,38 @@ img { max-width: 100%; height: auto; display: block; }
       <div class="flow-arrow">&rarr;</div>
       <div class="flow-step">Best-in-breed</div>
     </div>
+
+    <div class="step-descs">
+      <div class="step-desc">
+        <h4>Finance First</h4>
+        <p>Core ledgers, banking, tax and close. Live in 30 days. Everything else follows from here.</p>
+      </div>
+      <div class="step-desc">
+        <h4>Sales / CRM</h4>
+        <p>If your sales pipeline and customer data need to connect to your finance system.</p>
+      </div>
+      <div class="step-desc">
+        <h4>HR / Payroll</h4>
+        <p>If people data and payroll are the next priority for your business.</p>
+      </div>
+      <div class="step-desc">
+        <h4>Inventory / Operations</h4>
+        <p>If stock, fulfilment or order management is where the pressure is.</p>
+      </div>
+      <div class="step-desc">
+        <h4>Best-in-breed</h4>
+        <p>Best-in-breed tools that connect into NetSuite, wherever the business needs to go next.</p>
+      </div>
+    </div>
+
+    <p class="roadmap-footer">The only thing set in stone is that finance comes first. After that, we sit down with you, understand where your business is going and build a roadmap that gets you there, one step at a time.</p>
   </div>
 </section>
 
-<!-- M: WHY SECTION -->
-<section class="why-section">
+<!-- ============================================
+     M: WHY SECTION
+     ============================================ -->
+<section class="why-section section">
   <div class="container">
     <h2>The credentials behind the guarantee</h2>
     <div class="why-items">
@@ -1101,81 +1564,89 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="why-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
-        <h3>NetSuite since 2005</h3>
-        <p>Two decades, one platform. No distractions, no side projects.</p>
+        <h3>NetSuite only, since 2005.</h3>
+        <p>One platform. Two decades. No distractions.</p>
       </div>
       <div class="why-item">
         <div class="why-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        <h3>350+ projects</h3>
-        <p>Patterns that repeat. A methodology refined over hundreds of deliveries.</p>
+        <h3>350+ projects delivered.</h3>
+        <p>We've seen your migration before, many times.</p>
       </div>
       <div class="why-item">
         <div class="why-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         </div>
-        <h3>AI-accelerated</h3>
-        <p>Repetitive configuration handled in hours, not weeks. Human judgment on the 20% that counts.</p>
+        <h3>AI-accelerated delivery.</h3>
+        <p>AI handles configuration, migration and testing in days, not months. Our consultants spend their time on you, not the machinery.</p>
       </div>
       <div class="why-item">
         <div class="why-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h3>Aftercare built in</h3>
-        <p>We do not disappear on day 31. Twelve months of hands-on support, every month.</p>
+        <h3>Aftercare built in, not bolted on.</h3>
+        <p>Aftercare isn't an upsell, it's the business we built. Most of our customers have been with us for years.</p>
       </div>
       <div class="why-item">
         <div class="why-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
         </div>
-        <h3>Money-back guarantee</h3>
-        <p>Live in 30 days, or the final 50% is waived. The risk sits with us, not with you.</p>
+        <h3>Money-back guarantee.</h3>
+        <p>Miss 30 days and you keep &pound;15,000. We can only offer that because we don't miss.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- N: FINANCE OPTIONS -->
-<section class="finance-options">
+<!-- ============================================
+     N: FINANCE OPTIONS
+     ============================================ -->
+<section class="finance-options section">
   <div class="container">
-    <h2>You do not have to pay it all upfront.</h2>
-    <p>Third-party finance is available for the full project cost, including the aftercare plan. Monthly payments, structured over a term that works for your business. Ask us on the call and we will walk you through the options.</p>
+    <h2>You don't have to pay it all upfront.</h2>
+    <p>We can facilitate finance on the &pound;30,000 implementation fee through a third-party provider, subject to credit checks. Monthly payment options spread the cost without changing the scope, the timeline or the guarantee. If you would like to explore this, raise it when we speak and we will make the introduction.</p>
+    <p class="footnote">* Finance is facilitated through a third-party provider. Figures shown are indicative and subject to credit checks and lender terms. Six-month options are also available on request.</p>
   </div>
 </section>
 
-<!-- O: FAQ -->
-<section class="faq">
+<!-- ============================================
+     O: FAQ
+     ============================================ -->
+<section class="faq section" id="faq">
   <div class="container">
-    <h2>Questions we hear often</h2>
+    <h2>The questions finance directors actually ask</h2>
     <dl>
-      <dt>What happens if you miss the 30-day deadline?</dt>
-      <dd>The final &pound;15,000 payment is waived. You still get a live NetSuite Financials instance, we still deliver the project, and we still honour the 12-month aftercare commitment. The only thing that changes is you do not pay the second half. The deadline is real, and the consequence is ours.</dd>
+      <dt>&pound;30,000 seems low for a NetSuite implementation. What's the catch?</dt>
+      <dd>There isn't one, but there is a reason. Traditional implementations are priced for open-ended scope and human hours. Financials First Fast-Track is a fixed, repeatable scope delivered with AI-accelerated configuration, migration and testing. We've removed the two things that make ERP projects expensive: ambiguity and manual effort. The trade is clarity. The scope is published on this page. If you need more than the scope, that's a different project, and we'll tell you before you sign anything.</dd>
 
-      <dt>Can we add CRM, inventory, or other modules later?</dt>
-      <dd>Absolutely. That is the entire point of Financials First. Once your finance core is stable and your team is confident, we can add modules at your pace. The same team, the same methodology, just scoped and priced as separate phases. No lock-in, no pressure.</dd>
+      <dt>What happens if our scope changes mid-project?</dt>
+      <dd>The 30-day guarantee applies to the published scope, agreed at pre-flight. If you ask for additions mid-flight, we'll log them for phase two so the go-live date holds. If a change is genuinely critical to go-live, we'll re-baseline the price, timeline and checklist together, in writing, before any work changes.</dd>
 
-      <dt>Why is the 12-month aftercare mandatory?</dt>
-      <dd>Because we have learned, over 350+ projects, that the first year is when things go wrong if they are going to. Month-end closes, audit prep, regulatory changes, new hires who need training. The aftercare is not a revenue stream. It is how we make sure your project is a success story, not a cautionary tale.</dd>
+      <dt>How do you deliver an implementation in 30 days?</dt>
+      <dd>We use AI to accelerate the parts of an implementation that traditionally eat up the most time: system configuration, data migration, workflow build and testing. This lets our consultants focus entirely on your project, your people and your outcome rather than doing manual technical work. You never deal with the technology directly. Your single point of contact throughout is your named ERP Experts consultant, who leads the relationship and the result from first call to go-live and beyond.</dd>
 
-      <dt>What if we need more than 30 hours of support in a month?</dt>
-      <dd>Additional hours are available at an agreed rate. In practice, 30 hours is more than enough for a well-configured Financials instance. The first month or two may run closer to the limit, but by month three most clients are using fewer than half their hours. The capacity is there when you need it.</dd>
+      <dt>We have more than one legal entity. Can we still use Financials First Fast-Track?</dt>
+      <dd>Yes, with sequencing. Financials First Fast-Track includes one subsidiary on a OneWorld licence, which means additional entities can be added afterwards without re-platforming. Most multi-entity customers go live with their primary entity in 30 days, then roll in the others as a planned phase. If all entities must go live simultaneously, this offer isn't the right shape and we'll scope a standard implementation instead.</dd>
 
-      <dt>What is the pre-flight checklist, and how long does it take?</dt>
-      <dd>The pre-flight checklist is the eight items we need from you to start building. Chart of accounts, bank details, tax info, opening balances, vendor and customer lists, users, sample reports, and NetSuite access. Most organisations can complete it in a week. The 30-day clock starts when the checklist is done, not before.</dd>
+      <dt>Our data is a mess. Does that disqualify us?</dt>
+      <dd>No, it just means the clock hasn't started yet. Data readiness is exactly what the pre-flight checklist exists for, and we work alongside you to extract, cleanse and reconcile your legacy data before day one. The 30 days only begin once the checklist, including reconciled opening balances, is signed off. Messy data delays the start, never the guarantee.</dd>
     </dl>
   </div>
 </section>
 
-<!-- P: FINAL CTA -->
-<section class="final-cta" id="book">
+<!-- ============================================
+     P: FINAL CTA
+     ============================================ -->
+<section class="final-cta section" id="book">
   <div class="container">
     <h2>Ready to go live in 30 days?</h2>
+    <p class="cta-sub">A 30-minute conversation with an ERP Experts consultant. We'll tell you honestly whether Financials First Fast-Track fits, and what your pre-flight would look like.</p>
     <div class="btn-group">
       <a href="tel:+441785336253" class="btn btn-white">Call 01785 336 253 &rarr;</a>
-      <a href="../checklist/" class="btn btn-outline-white">View the Pre-Flight Checklist &darr;</a>
+      <a href="/financialsfirst/checklist" class="btn btn-outline-white">View the Pre-Flight Checklist &darr;</a>
     </div>
-    <a href="mailto:hello@erpexperts.co.uk" class="email-link">hello@erpexperts.co.uk</a>
+    <a href="mailto:hello@erpexperts.co.uk" class="email-link">Prefer email? hello@erpexperts.co.uk</a>
     <div class="footer-strip">
       FIXED &pound;30,000 &middot; 50% ON SIGNATURE &middot; 50% ON GO-LIVE &middot; 30 DAYS
     </div>
