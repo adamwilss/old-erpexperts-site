@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Flight Checklist | Financials First Fast-Track</title>
+    <meta name="description" content="Eight items that must be complete before the 30-day Financials First Fast-Track clock starts. ERP Experts work through all of these with you.">
+    <link rel="canonical" href="https://erpexperts.co.uk/financialsfirst/checklist">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ff-blue: #7C3AED;
+            --ff-blue-deep: #6D28D9;
+            --ff-blue-ink: #2A1457;
+            --ff-blue-soft: #F1EBFD;
+            --ff-blue-band: #F5F1FC;
+            --ff-blue-line: #DDD0F6;
+            --ff-ink: #15181E;
+            --ff-body: #3D4350;
+            --ff-slate: #647080;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--ff-body);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* ---- Container ---- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ---- Typography ---- */
+        h1, h2, h3, h4 {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--ff-ink);
+            line-height: 1.15;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.005em;
+        }
+
+        p, li {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 1rem;
+            line-height: 1.65;
+            color: var(--ff-body);
+        }
+
+        a {
+            color: var(--ff-blue);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--ff-blue-deep);
+            text-decoration: underline;
+        }
+
+        /* ---- Pill Button ---- */
+        .btn-primary {
+            display: inline-block;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+            background: var(--ff-blue);
+            padding: 0.875rem 2.25rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--ff-blue-deep);
+            color: #fff;
+            text-decoration: none;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(109, 40, 217, 0.35);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 4px rgba(124, 58, 237, 0.2);
+        }
+
+        /* ---- Section Spacing ---- */
+        section {
+            padding: 5rem 0;
+        }
+
+        /* ========================================
+           SECTION A - HEADER
+           ======================================== */
+        .header-section {
+            background: #fff;
+            padding-bottom: 2rem;
+        }
+
+        .header-section h1 {
+            margin-bottom: 1.25rem;
+        }
+
+        .header-section h1 span.line {
+            display: block;
+        }
+
+        .header-section .lead {
+            font-size: 1.125rem;
+            color: var(--ff-body);
+            margin-bottom: 1rem;
+            max-width: 640px;
+        }
+
+        .header-section .explanation {
+            font-size: 0.95rem;
+            color: var(--ff-slate);
+            margin-bottom: 1.5rem;
+            max-width: 640px;
+        }
+
+        .highlight-box {
+            background: var(--ff-blue-soft);
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem;
+            max-width: 640px;
+        }
+
+        .highlight-box p {
+            font-weight: 500;
+            color: var(--ff-blue-ink);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           SECTION B - PROGRESS INDICATOR
+           ======================================== */
+        .progress-section {
+            background: var(--ff-blue-band);
+        }
+
+        .progress-wrapper {
+            text-align: center;
+        }
+
+        .progress-number {
+            display: inline-block;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 5.5rem);
+            font-weight: 800;
+            color: var(--ff-blue);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .progress-label {
+            display: block;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--ff-slate);
+            margin-bottom: 1.75rem;
+        }
+
+        .progress-circles {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .progress-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--ff-blue-line);
+            flex-shrink: 0;
+        }
+
+        .progress-caption {
+            font-size: 0.9rem;
+            color: var(--ff-slate);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* ========================================
+           SECTION C - CHECKLIST CARDS
+           ======================================== */
+        .checklist-section {
+            background: #fff;
+        }
+
+        .checklist-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .checklist-card {
+            border: 1px solid #E7EAF0;
+            border-radius: 16px;
+            padding: 1.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            background: #fff;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .checklist-card:hover {
+            border-color: var(--ff-blue-line);
+            box-shadow: 0 2px 12px rgba(124, 58, 237, 0.06);
+        }
+
+        .card-number {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--ff-blue);
+            line-height: 1;
+            flex-shrink: 0;
+            min-width: 3rem;
+        }
+
+        .card-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-title {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: var(--ff-ink);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .card-description {
+            font-size: 0.925rem;
+            color: var(--ff-body);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: var(--ff-blue-soft);
+            color: var(--ff-blue);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            white-space: nowrap;
+        }
+
+        .card-status::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--ff-blue);
+            flex-shrink: 0;
+        }
+
+        /* ========================================
+           SECTION D - BOTTOM CTA
+           ======================================== */
+        .cta-section {
+            background: #fff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-contact a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--ff-body);
+            transition: color 0.2s ease;
+        }
+
+        .cta-contact a:hover {
+            color: var(--ff-blue);
+            text-decoration: underline;
+        }
+
+        .cta-section .btn-primary {
+            font-size: 1.05rem;
+            padding: 1rem 2.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtext {
+            font-size: 0.9rem;
+            color: var(--ff-slate);
+        }
+
+        /* ---- Footer ---- */
+        .site-footer {
+            background: var(--ff-blue-ink);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .site-footer a {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .site-footer a:hover {
+            color: #fff;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 640px) {
+            section {
+                padding: 3rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .checklist-card {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 1.25rem;
+            }
+
+            .card-number {
+                font-size: 1.75rem;
+                min-width: auto;
+            }
+
+            .progress-circles {
+                gap: 0.5rem;
+            }
+
+            .progress-circle {
+                width: 26px;
+                height: 26px;
+            }
+
+            .cta-contact {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .highlight-box {
+                padding: 1rem 1.25rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .progress-circles {
+                gap: 0.4rem;
+            }
+
+            .progress-circle {
+                width: 22px;
+                height: 22px;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .header-section .lead {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         SECTION A - HEADER
+         ============================================ -->
+    <section class="header-section">
+        <div class="container">
+            <h1>
+                <span class="line">Financials First Fast-Track</span>
+                <span class="line">Pre-Flight Checklist</span>
+            </h1>
+            <p class="lead">
+                Eight items that must be complete before the 30-day clock starts.
+                We work through all of these with you.
+            </p>
+            <p class="explanation">
+                During the discovery phase before your implementation begins, your dedicated
+                ERP Experts project lead will walk your team through each item below. Most of
+                these are things you already have; we help you organise them into the format
+                NetSuite needs. Nothing here is busywork; every item directly affects
+                how cleanly your 30-day go-live runs.
+            </p>
+            <div class="highlight-box">
+                <p>
+                    Once all eight items are complete and signed off by both sides, Day 1 is
+                    confirmed in writing and the 30-day window opens.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION B - PROGRESS INDICATOR
+         ============================================ -->
+    <section class="progress-section">
+        <div class="container progress-wrapper">
+            <span class="progress-number">0 of 8</span>
+            <span class="progress-label">complete</span>
+            <div class="progress-circles">
+                <div class="progress-circle"></div>
+                <div class="progress-circle"></div>
+                <div class="progress-circle"></div>
+                <div class="progress-circle"></div>
+                <div class="progress-circle"></div>
+                <div class="progress-circle"></div>
+                <div class="progress-circle"></div>
+                <div class="progress-circle"></div>
+            </div>
+            <p class="progress-caption">
+                Your progress is reviewed during the initial kick-off call. Once all eight
+                items are confirmed complete, your guarantee activates and the clock starts.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION C - CHECKLIST CARDS
+         ============================================ -->
+    <section class="checklist-section">
+        <div class="container checklist-stack">
+
+            <!-- 01 -->
+            <div class="checklist-card">
+                <span class="card-number">01</span>
+                <div class="card-body">
+                    <h3 class="card-title">Chart of Accounts signed off</h3>
+                    <p class="card-description">
+                        Your target account structure agreed and approved by your FD or FC
+                        before configuration begins. Changes after this point affect the clock.
+                    </p>
+                    <span class="card-status">Signed off and approved</span>
+                </div>
+            </div>
+
+            <!-- 02 -->
+            <div class="checklist-card">
+                <span class="card-number">02</span>
+                <div class="card-body">
+                    <h3 class="card-title">Legacy data extracted</h3>
+                    <p class="card-description">
+                        Trial balances, open AP/AR and transactional history exported from
+                        Xero, Sage or QuickBooks using our data template. We supply the template.
+                    </p>
+                    <span class="card-status">Data exported and ready</span>
+                </div>
+            </div>
+
+            <!-- 03 -->
+            <div class="checklist-card">
+                <span class="card-number">03</span>
+                <div class="card-body">
+                    <h3 class="card-title">Opening balances agreed</h3>
+                    <p class="card-description">
+                        A cut-off date confirmed, with a trial balance reconciled to that date.
+                        Open AP, AR and agreed master data prior to cut-off are brought in as
+                        opening balances. We agree the exact approach with your FD before
+                        migration begins.
+                    </p>
+                    <span class="card-status">Cut-off date and balances confirmed</span>
+                </div>
+            </div>
+
+            <!-- 04 -->
+            <div class="checklist-card">
+                <span class="card-number">04</span>
+                <div class="card-body">
+                    <h3 class="card-title">Bank and tax details confirmed</h3>
+                    <p class="card-description">
+                        Bank accounts, VAT registrations and tax codes documented and verified.
+                        HMRC MTD configuration requires your VAT number and filing period confirmed.
+                    </p>
+                    <span class="card-status">Bank and tax details supplied</span>
+                </div>
+            </div>
+
+            <!-- 05 -->
+            <div class="checklist-card">
+                <span class="card-number">05</span>
+                <div class="card-body">
+                    <h3 class="card-title">Named project owner</h3>
+                    <p class="card-description">
+                        One person on your side with the authority to make decisions and time
+                        in their diary. Implementations stall when decisions need escalation.
+                        This person must be available throughout the 30 days.
+                    </p>
+                    <span class="card-status">Project owner identified and confirmed</span>
+                </div>
+            </div>
+
+            <!-- 06 -->
+            <div class="checklist-card">
+                <span class="card-number">06</span>
+                <div class="card-body">
+                    <h3 class="card-title">Users and roles agreed</h3>
+                    <p class="card-description">
+                        A complete list of who needs access, what role they perform in the
+                        business, and what approval permissions they hold. This drives the
+                        permission structure built into NetSuite.
+                    </p>
+                    <span class="card-status">User list and roles document complete</span>
+                </div>
+            </div>
+
+            <!-- 07 -->
+            <div class="checklist-card">
+                <span class="card-number">07</span>
+                <div class="card-body">
+                    <h3 class="card-title">Go-live date in the diary</h3>
+                    <p class="card-description">
+                        A committed cut-over date agreed and blocked in your team's calendars.
+                        Your project owner and key finance users need to be available for
+                        go-live and the first days of live running immediately after.
+                    </p>
+                    <span class="card-status">Go-live date confirmed and blocked</span>
+                </div>
+            </div>
+
+            <!-- 08 -->
+            <div class="checklist-card">
+                <span class="card-number">08</span>
+                <div class="card-body">
+                    <h3 class="card-title">Signed Business Requirements Document</h3>
+                    <p class="card-description">
+                        The BRD captures the agreed scope, configuration decisions and any
+                        specific requirements for your implementation. It is signed off by your
+                        project owner. This document locks the scope and formally starts the
+                        30-day clock.
+                    </p>
+                    <span class="card-status">BRD signed off</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION D - BOTTOM CTA
+         ============================================ -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Questions about any item?</h2>
+            <div class="cta-contact">
+                <a href="tel:+441785336253">01785 336 253</a>
+                <a href="mailto:hello@erpexperts.co.uk">hello@erpexperts.co.uk</a>
+            </div>
+            <a href="../offer/#book" class="btn-primary">Ready to start your pre-flight?</a>
+            <p class="cta-subtext">Let's have a 30-minute conversation first.</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 ERP Experts Ltd. All rights reserved. | <a href="/">erpexperts.co.uk</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

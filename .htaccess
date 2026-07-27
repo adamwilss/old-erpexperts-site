@@ -1,0 +1,100 @@
+AddType text/css .css
+AddType application/javascript .js
+AddType image/svg+xml .svg
+AddType image/avif .avif
+AddType image/webp .webp
+
+# Never cache index.html so users always get the latest build
+<Files "index.html">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </IfModule>
+</Files>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect www to non-www
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # Qualify Canvas Admin Lite same-domain API proxy.
+  # Keep this before the SPA fallback so /qc-api/... reaches PHP.
+  RewriteRule ^qc-api/?(.*)$ api/qualify-canvas-proxy.php?path=$1 [QSA,L]
+
+  # ── Old-site 301 redirects (SEO: transfer link equity) ──
+
+  # Old service pages
+  Redirect 301 /services /implementation
+  Redirect 301 /services/aftercare /support
+  Redirect 301 /services/implementation /implementation
+  Redirect 301 /services/consultancy /implementation
+  Redirect 301 /services/development /implementation
+  Redirect 301 /services/integrations /implementation
+  Redirect 301 /services/training /implementation
+
+  # Old NetSuite-prefixed pages
+  Redirect 301 /netsuite-help /support
+  Redirect 301 /netsuite-support /support
+  Redirect 301 /netsuite-products /implementation
+  Redirect 301 /netsuite-experts /about
+  Redirect 301 /netsuite-services /implementation
+  Redirect 301 /netsuite-pricing /contact
+  Redirect 301 /netsuite-integrations /implementation
+
+  # Old info pages
+  Redirect 301 /about-erp-experts /about
+  Redirect 301 /what-is-erp /what-is-netsuite
+  Redirect 301 /why-netsuite /what-is-netsuite
+  Redirect 301 /manufacturing /case-studies
+  Redirect 301 /business-transformation /implementation
+  Redirect 301 /contact-us /contact
+  Redirect 301 /become-a-partner /partners
+  Redirect 301 /privacy-policy /privacy
+  Redirect 301 /tc /terms
+
+  # Old case study URLs (no slash between prefix and name)
+  Redirect 301 /case-studies-carallon /case-studies/carallon
+  Redirect 301 /case-studies-eco2solar /case-studies/eco2solar
+  Redirect 301 /case-studies-totalkare /case-studies/totalkare
+  Redirect 301 /case-studies-kynetec /case-studies/kynetec
+
+  # Old blog listing
+  Redirect 301 /blog /resources
+
+  # Old blog category pages
+  RewriteRule ^blog/categories/.* /resources [R=301,L]
+
+  # Specific high-impression old blog posts with matching new resources
+  Redirect 301 /post/netsuite-for-small-businesses /resources/netsuite-for-small-businesses
+
+  # Catch-all: any remaining /post/* → /resources
+  RewriteRule ^post/.* /resources [R=301,L]
+
+  # If the requested file or directory doesn't exist, serve index.html (SPA)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Enable GZIP compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Set caching headers for assets (Vite hashes filenames so long cache is safe)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
